@@ -1,0 +1,40 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.5'  // Spring Boot 버전
+    id 'java'
+}
+
+group = 'com.example'
+version = '1.0-SNAPSHOT'
+sourceCompatibility = '11'  // Java 버전 11 사용
+
+repositories {
+    mavenCentral()  // 필요한 의존성을 다운로드하기 위한 설정
+}
+
+dependencies {
+    // Spring Boot Starter Web
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // Spring Boot Starter Data JPA
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // Lombok 의존성
+    implementation 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    // H2 데이터베이스 (로컬 개발용)
+    runtimeOnly 'com.h2database:h2'
+
+    // Spring Boot Test (테스트용)
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // Validation 의존성 (javax.validation)
+    implementation 'javax.validation:javax.validation-api:2.0.1.Final'
+
+    // Hibernate Validator 의존성 (필수)
+    implementation 'org.hibernate.validator:hibernate-validator:6.2.0.Final'
+}
+
+test {
+    useJUnitPlatform()  // JUnit5 사용
+}
